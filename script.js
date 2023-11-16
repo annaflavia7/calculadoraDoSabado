@@ -13,15 +13,29 @@ let valor1 = document.querySelector("#valor1");
 let valor2 = document.querySelector("#valor2");
 let resultado = document.querySelector("#resultado");
 
-valor1.addEventListener("keyup", function() {
-    somar(Number(valor1.value), Number(valor2.value));
-});
-
-valor2.addEventListener("keyup", function() {
-    somar(Number(valor1.value), Number(valor2.value));
+let btSomar = document.getElementById("btSomar");
+btSomar.addEventListener("click", function () {
+    somar(Number(valor1.value), Number(valor2.value))
 });
 
 function somar(a, b) {
-    let soma = a + b;
-    resultado.innerHTML = soma;
+    resultado.textContent = a + b;
 }
+let idioma = document.getElementById("idioma");
+idioma.addEventListener("change", function () {
+    if (this.value == "br") {
+        btSomar.value = "Somar";
+    } else if (this.value == "es") {
+        btSomar.value = "Sumar"
+    }
+    else if (this.value == "en") {
+
+        btSomar.value = "Add";
+    }
+    else if (this.value == "fr") {
+        btSomar.value = "Ajjouter";
+
+    }
+});
+
+
